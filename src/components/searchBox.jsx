@@ -13,7 +13,7 @@ function SearchBox({ searchByTag, setSearchByTag }) {
           placeholder="Search Gallery by Tags"
           value={searchByTag}
           onChange={handleSearch}
-          className="w-1/2 mx-auto placeholder:font-poppins font-poppins border-2 border-black border-opacity-30 rounded-sm outline-0 focus:ring-0 focus:border0  focus:border-orange "
+          className="md:w-1/2 w-full mx-10 md:mx-auto placeholder:font-poppins font-poppins border-2 border-black border-opacity-30 rounded-sm outline-0 focus:ring-0 focus:border0  focus:border-orange "
         />
       </form>
     </>
