@@ -1,16 +1,15 @@
 import { Navigate, Outlet } from "react-router";
 import { useAuthStatus } from "../hooks/useAuthStatus";
-import { useState, useEffect } from "react";
-import Spinner from "../assets/spinner.svg";
+// import { useState, useEffect } from "react";
 import Loading from "./Loading";
 
 export default function PrivateRoute() {
   const { loggedIn, checkingStatus } = useAuthStatus();
-  const [showSpinner, setShowSpinner] = useState(false);
+  // const [showSpinner, setShowSpinner] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => setShowSpinner(true), 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => setShowSpinner(true), 3000);
+  // }, []);
 
   if (checkingStatus) {
     return (
