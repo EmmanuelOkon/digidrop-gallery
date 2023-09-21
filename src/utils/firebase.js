@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "@firebase/app";
-import { getFirestore } from "@firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,9 +10,10 @@ const firebaseConfig = {
   projectId: "drag-and-drop-gallery-8db49",
   storageBucket: "drag-and-drop-gallery-8db49.appspot.com",
   messagingSenderId: "995609604908",
-  appId: "1:995609604908:web:3da6d2ccc4d92f7b6ab289",
+  appId: "1:995609604908:web:3da6d2ccc4d92f7b6ab289"
 };
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
-export const db = getFirestore();
+const app = initializeApp(firebaseConfig);
+
+export { app };

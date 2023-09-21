@@ -21,8 +21,8 @@ const characters = [
     image: Image4,
   },
   {
-    id: "kvn",
-    tags: ["#kvn"],
+    id: "king",
+    tags: ["#king"],
     image: Image5,
   },
   {
@@ -124,13 +124,16 @@ export default function Gallery() {
                                 {...provided.dragHandleProps}
                                 className="cursor-pointer list-none outline-0 w-full flex justify-center items-center"
                               >
-                                <div className="w-full flex flex-col justify-center items-center aspect-w-10 aspect-h-7 focus-within:ring-0 focus-within:ring-offset-0  overflow-hidden">
+                                <div className="w-full flex flex-col justify-center items-center aspect-w-10 aspect-h-7 focus-within:ring-0 focus-within:ring-offset-0 bg-grey bg-opacity-40 rounded-[4px] overflow-hidden">
                                   <img
                                     src={character?.image}
                                     alt={character?.id}
-                                    className="object-cover group-hover:opacity-75 hover:scale-100"
+                                    className="object-cover w-full group-hover:opacity-75 hover:scale-100"
                                   />
-                                  <p className="capitalize">{character.tags}</p>
+                                  <div className=" w-full text-center">
+
+                                  <p className="capitalize font-raleway py-2 text-white font-semibold text-xl tracking-wider ">{character.tags}</p>
+                                  </div>
                                 </div>
                               </li>
                             )}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+
 import Header from "./components/Header";
 import PrivateRoute from "./components/PrivateRoute";
 import Loading from "./components/Loading";
@@ -32,7 +32,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
           </Route>
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          
         </Routes>
       </Router>
     </>

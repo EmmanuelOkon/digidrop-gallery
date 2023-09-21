@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, getAuth } from "@firebase/auth";
 import Toastify from "toastify-js";
 import Spinner from "../assets/spinnerWhite.svg";
+import { app } from "../utils/firebase";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -20,7 +21,6 @@ export default function SignIn() {
     }));
   }
 
-
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function SignIn() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const auth = getAuth();
+      const auth = getAuth(app);
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -118,14 +118,17 @@ export default function SignIn() {
                 />
               )}
             </div>
-            
+
             {isLoading ? (
               <button
                 className="w-full bg-red h-11  text-white px-2 rounded-md transition duration-150 ease-in-out hover:bg-opacity-90  shadow-xl flex items-center"
                 type="submit"
               >
-                
-                <img src={Spinner} alt="spinner" className="w-32 h-auto mx-auto" />
+                <img
+                  src={Spinner}
+                  alt="spinner"
+                  className="w-32 h-auto mx-auto"
+                />
               </button>
             ) : (
               <button
