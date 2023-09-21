@@ -75,4 +75,3 @@ Password: 1Password
 ## Deployment
 This project is deployed on [Vercel](https://vercel.com/). You can view it [here](https://digidrop-gallery.vercel.app/).
 
-```
