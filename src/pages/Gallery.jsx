@@ -9,7 +9,7 @@ import Image7 from "../assets/article-7.png";
 import Image8 from "../assets/article-8.png";
 import Loading from "../components/Loading";
 
-const characters = [
+const ImageData = [
   {
     id: "gary",
     tags: ["#gary"],
@@ -58,7 +58,7 @@ const characters = [
 ];
 
 export default function Gallery() {
-  const [images, setImages] = useState(characters);
+  const [images, setImages] = useState(ImageData);
   const [loading, setLoading] = useState(true);
   const [searchByTag, setSearchByTag] = useState("");
 
@@ -69,11 +69,9 @@ export default function Gallery() {
     }, 3000);
   }, []);
 
-  const filterImages = (characters, term) => {
-    return characters.filter((character) =>
-      character.tags.some((tag) =>
-        tag.toLowerCase().includes(term.toLowerCase())
-      )
+  const filterImages = (imagesData, term) => {
+    return imagesData.filter((image) =>
+      image.tags.some((tag) => tag.toLowerCase().includes(term.toLowerCase()))
     );
   };
 
@@ -86,6 +84,8 @@ export default function Gallery() {
 
     setImages(items);
   }
+
+  const filteredImages = filterImages(images, searchByTag);
 
   return (
     <>
@@ -110,36 +110,35 @@ export default function Gallery() {
                       {...provided.droppableProps}
                       ref={provided.innerRef}
                     >
-                      {filterImages(characters, searchByTag).map(
-                        (character, index) => (
-                          <Draggable
-                            key={character.id}
-                            draggableId={character.id}
-                            index={index}
-                          >
-                            {(provided) => (
-                              <li
-                                ref={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                className="cursor-pointer list-none outline-0 w-full flex justify-center items-center"
-                              >
-                                <div className="w-full flex flex-col justify-center items-center aspect-w-10 aspect-h-7 focus-within:ring-0 focus-within:ring-offset-0 bg-grey bg-opacity-40 rounded-[4px] overflow-hidden">
-                                  <img
-                                    src={character?.image}
-                                    alt={character?.id}
-                                    className="object-cover w-full group-hover:opacity-75 hover:scale-100"
-                                  />
-                                  <div className=" w-full text-center">
-
-                                  <p className="capitalize font-raleway py-2 text-white font-semibold text-xl tracking-wider ">{character.tags}</p>
-                                  </div>
+                      {filteredImages.map((image, index) => (
+                        <Draggable
+                          key={image.id}
+                          draggableId={image.id}
+                          index={index}
+                        >
+                          {(provided) => (
+                            <li
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              className="cursor-pointer list-none outline-0 w-full flex justify-center items-center"
+                            >
+                              <div className="w-full flex flex-col justify-center items-center aspect-w-10 aspect-h-7 focus-within:ring-0 focus-within:ring-offset-0 bg-grey bg-opacity-40 rounded-[4px] overflow-hidden">
+                                <img
+                                  src={image?.image}
+                                  alt={image?.id}
+                                  className="object-cover w-full group-hover:opacity-75 hover:scale-100"
+                                />
+                                <div className=" w-full text-center">
+                                  <p className="capitalize font-raleway py-2 text-white font-semibold text-xl tracking-wider ">
+                                    {image.tags}
+                                  </p>
                                 </div>
-                              </li>
-                            )}
-                          </Draggable>
-                        )
-                      )}
+                              </div>
+                            </li>
+                          )}
+                        </Draggable>
+                      ))}
                       {provided.placeholder}
                     </div>
                   )}
