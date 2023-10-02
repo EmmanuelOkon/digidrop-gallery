@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <div className="bg-white border-b border-b-red shadow-sm sticky top-0 z-30">
-      <header className="flex justify-between items-center px-3 md:px-10 max-w-6xl mx-auto">
+      <header className="flex justify-between items-center px-4 md:px-10 max-w-7xl mx-auto">
         <div
           className="flex items-center font-raleway font-bold text-xl cursor-pointer"
           onClick={() => navigate("/")}

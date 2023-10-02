@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:gap-10 lg:flex-row px-4  md:pt-40 pt-20 lg:px-20">
-      <div className="m-auto py-5 text-center lg:text-left ">
-        <div className="sm:px-1 xl:pr-16">
+    <div className="flex flex-col align-middle md:gap-10 lg:flex-row px-4  md:pt40 pt20 lg:px-2 h-[90vh] ">
+      <div className="mx-auto my-auto py-5 text-center">
+        <div className="sm:px-1">
           <h1 className="font-raleway text-center text-3xl lg:tracking-wide font-bold text-blue lg:text-5xl">
             Welcome to Digidrop
           </h1>
@@ -25,7 +25,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
     </div>
-  )
+  );
 }

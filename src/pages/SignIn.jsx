@@ -79,66 +79,68 @@ export default function SignIn() {
   }
 
   return (
-    <section>
-      <h1 className="text-xl md:text-3xl text-center mt-6 font-bold text-red uppercase  md:tracking-widest">
-        Log in
-      </h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
-        <div className="w-full md:w-[50%] lg:w-[50%] ">
-          <img className="w-full" src={Locked} alt="locker" />
-        </div>
-        <div className="w-full md:w-[50%] bg-rd-700 py-6 lg:px-6">
-          <form className="w-full" onSubmit={onSubmit}>
-            <input
-              className="w-full px-4 py-2 md:text-lg text-grey bg-white border-[2px] border-grey border-opacity-25 rounded-md outline-none focus:border-fadeGreen focus:ring-transparent transition ease-in-out mb-6 placeholder:font-poppins"
-              type="email"
-              id="email"
-              value={email}
-              onChange={onChange}
-              placeholder="Enter e-mail address"
-            />
-            <div className="relative">
+    <section className=" ">
+      <div className="flex flex-col justify-center h-[90vh]">
+        <h1 className="text-xl md:text-3xl text-center mt-6 font-bold text-red uppercase  md:tracking-widest">
+          Log in
+        </h1>
+        <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
+          <div className="w-full md:w-[50%] lg:w-[50%] ">
+            <img className="w-full p-6" src={Locked} alt="locker" />
+          </div>
+          <div className="w-full md:w-[50%] bg-rd-700 py-6 lg:px-6">
+            <form className="w-full" onSubmit={onSubmit}>
               <input
                 className="w-full px-4 py-2 md:text-lg text-grey bg-white border-[2px] border-grey border-opacity-25 rounded-md outline-none focus:border-fadeGreen focus:ring-transparent transition ease-in-out mb-6 placeholder:font-poppins"
-                type={showPassword ? "text" : "password"}
-                id="password"
-                value={password}
+                type="email"
+                id="email"
+                value={email}
                 onChange={onChange}
-                placeholder="Enter password"
+                placeholder="Enter e-mail address"
               />
-              {showPassword ? (
-                <AiFillEyeInvisible
-                  className="absolute right-4 top-[.6rem] md:top-[.8rem] text-2xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
+              <div className="relative">
+                <input
+                  className="w-full px-4 py-2 md:text-lg text-grey bg-white border-[2px] border-grey border-opacity-25 rounded-md outline-none focus:border-fadeGreen focus:ring-transparent transition ease-in-out mb-6 placeholder:font-poppins"
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  value={password}
+                  onChange={onChange}
+                  placeholder="Enter password"
                 />
-              ) : (
-                <AiFillEye
-                  className="absolute right-4 top-[.6rem] md:top-[.8rem] text-2xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
-                />
-              )}
-            </div>
+                {showPassword ? (
+                  <AiFillEyeInvisible
+                    className="absolute right-4 top-[.6rem] md:top-[.8rem] text-2xl cursor-pointer"
+                    onClick={() => setShowPassword((prevState) => !prevState)}
+                  />
+                ) : (
+                  <AiFillEye
+                    className="absolute right-4 top-[.6rem] md:top-[.8rem] text-2xl cursor-pointer"
+                    onClick={() => setShowPassword((prevState) => !prevState)}
+                  />
+                )}
+              </div>
 
-            {isLoading ? (
-              <button
-                className="w-full bg-red h-11  text-white px-2 rounded-md transition duration-150 ease-in-out hover:bg-opacity-90  shadow-xl flex items-center"
-                type="submit"
-              >
-                <img
-                  src={Spinner}
-                  alt="spinner"
-                  className="w-32 h-auto mx-auto"
-                />
-              </button>
-            ) : (
-              <button
-                className="w-full bg-red text-white px-7 py-3 rounded-md font-medium text-sm transition duration-150 ease-in-out hover:bg-opacity-90 active:bg-red-900 uppercase shadow-xl"
-                type="submit"
-              >
-                Log In
-              </button>
-            )}
-          </form>
+              {isLoading ? (
+                <button
+                  className="w-full bg-red h-11  text-white px-2 rounded-md transition duration-150 ease-in-out hover:bg-opacity-90  shadow-xl flex items-center"
+                  type="submit"
+                >
+                  <img
+                    src={Spinner}
+                    alt="spinner"
+                    className="w-32 h-auto mx-auto"
+                  />
+                </button>
+              ) : (
+                <button
+                  className="w-full bg-red text-white px-7 py-3 rounded-md font-medium text-sm transition duration-150 ease-in-out hover:bg-opacity-90 active:bg-red-900 uppercase shadow-xl"
+                  type="submit"
+                >
+                  Log In
+                </button>
+              )}
+            </form>
+          </div>
         </div>
       </div>
     </section>
